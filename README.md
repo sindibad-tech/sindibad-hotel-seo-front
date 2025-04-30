@@ -12,7 +12,7 @@ Open your browser to see the result.
 
 You can start editing your project in Plasmic Studio. The page auto-updates as you edit the project.
 
-### Learn More
+## Learn More
 
 With Plasmic, you can enable non-developers on your team to publish pages and content into your website or app.
 
