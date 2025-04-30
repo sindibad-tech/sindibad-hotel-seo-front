@@ -542,6 +542,19 @@
           "cssFilePath": "plasmic/hotel_seo/PlasmicHotelCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "HNG-1UOHYsKi",
+          "name": "Lightbox",
+          "type": "managed",
+          "projectId": "k5hHCtYSicJ5vZr4xW3KEs",
+          "renderModuleFilePath": "plasmic/hotel_seo/PlasmicLightbox.tsx",
+          "importSpec": {
+            "modulePath": "Lightbox.tsx"
+          },
+          "cssFilePath": "plasmic/hotel_seo/PlasmicLightbox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [],

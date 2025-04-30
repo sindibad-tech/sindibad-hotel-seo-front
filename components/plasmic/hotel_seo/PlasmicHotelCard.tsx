@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import Lightbox from "../../Lightbox"; // plasmic-import: HNG-1UOHYsKi/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
 
@@ -95,6 +96,7 @@ export const PlasmicHotelCard__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicHotelCard__OverridesType = {
   root?: Flex__<"div">;
+  lightbox?: Flex__<typeof Lightbox>;
   link?: Flex__<"a"> & Partial<LinkProps>;
   h3?: Flex__<"h3">;
 };
@@ -202,15 +204,37 @@ function PlasmicHotelCard__RenderFunc(props: {
       <div className={classNames(projectcss.all, sty.freeBox___4QndW)}>
         <PlasmicImg__
           alt={""}
-          className={classNames(sty.img__yMnN1)}
-          displayHeight={"auto"}
+          className={classNames(sty.img__liydm)}
+          displayHeight={"160px"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
           displayWidth={"auto"}
-          height={"160px"}
           loading={"lazy"}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (window.location.href = `https://sindibad.iq/hotels/${$props.currentCity.name}/${$props.currentHotel.hotelId}`);
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
           src={(() => {
             try {
               return $props.currentHotel.content.images[$state.slideNum].url;
@@ -224,6 +248,14 @@ function PlasmicHotelCard__RenderFunc(props: {
               throw e;
             }
           })()}
+        />
+
+        <Lightbox
+          data-plasmic-name={"lightbox"}
+          data-plasmic-override={overrides.lightbox}
+          className={classNames("__wab_instance", sty.lightbox)}
+          currentHotel={args.currentHotel}
+          slideNum={$state.slideNum}
         />
 
         {(() => {
@@ -630,7 +662,8 @@ function PlasmicHotelCard__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "link", "h3"],
+  root: ["root", "lightbox", "link", "h3"],
+  lightbox: ["lightbox"],
   link: ["link", "h3"],
   h3: ["h3"]
 } as const;
@@ -639,6 +672,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  lightbox: typeof Lightbox;
   link: "a";
   h3: "h3";
 };
@@ -703,6 +737,7 @@ export const PlasmicHotelCard = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    lightbox: makeNodeComponent("lightbox"),
     link: makeNodeComponent("link"),
     h3: makeNodeComponent("h3"),
 

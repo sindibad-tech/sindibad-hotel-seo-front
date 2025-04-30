@@ -1,7 +1,6 @@
 .root {
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 320px;
   height: auto;
   max-width: 100%;
@@ -9,6 +8,7 @@
   align-items: center;
   background: var(--token-p9mBFxnn3trO);
   overflow: hidden;
+  position: relative;
   border-radius: var(--token-gfGstwsXh_2q);
   padding: 0px;
   border: 1px solid var(--token-Ao7MqK40UU3D);
@@ -29,12 +29,18 @@
   min-width: 0;
   margin: 0px;
 }
-.img__yMnN1 {
+.img__liydm {
   object-fit: cover;
   max-width: 100%;
+  height: 160px;
+  flex-shrink: 0;
 }
-.img__yMnN1 > picture > img {
+.img__liydm > picture > img {
   object-fit: cover;
+}
+.lightbox:global(.__wab_instance) {
+  position: relative;
+  display: none;
 }
 .freeBox___7Lsqf {
   background: var(--token-p9mBFxnn3trO);
