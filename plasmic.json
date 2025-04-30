@@ -529,6 +529,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/404"
+        },
+        {
+          "id": "38fPhjJykGrK",
+          "name": "HotelCard",
+          "type": "managed",
+          "projectId": "k5hHCtYSicJ5vZr4xW3KEs",
+          "renderModuleFilePath": "plasmic/hotel_seo/PlasmicHotelCard.tsx",
+          "importSpec": {
+            "modulePath": "HotelCard.tsx"
+          },
+          "cssFilePath": "plasmic/hotel_seo/PlasmicHotelCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [],

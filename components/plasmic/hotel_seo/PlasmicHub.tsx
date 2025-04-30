@@ -63,8 +63,7 @@ import BasicHeaderMain from "../../BasicHeaderMain"; // plasmic-import: 68vzBgIl
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
-import { SliderWrapper } from "@plasmicpkgs/react-slick";
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
+import HotelCard from "../../HotelCard"; // plasmic-import: 38fPhjJykGrK/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -89,7 +88,10 @@ export type PlasmicHub__OverridesType = {
   section?: Flex__<"section">;
   h1?: Flex__<"h1">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  sliderCarousel?: Flex__<typeof SliderWrapper>;
+  text?: Flex__<"div">;
+  h3?: Flex__<"h3">;
+  hotelCard?: Flex__<typeof HotelCard>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
   skeletonStyles?: Flex__<typeof Embed>;
 };
 
@@ -140,14 +142,6 @@ function PlasmicHub__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 10
-      },
-      {
-        path: "sliderCarousel[][].currentSlide",
-        type: "private",
-        variableType: "number",
-
-        refName: "sliderCarousel",
-        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "colors",
@@ -425,10 +419,12 @@ function PlasmicHub__RenderFunc(props: {
                                         )}
                                       >
                                         <div
+                                          data-plasmic-name={"text"}
+                                          data-plasmic-override={overrides.text}
                                           className={classNames(
                                             projectcss.all,
                                             projectcss.__wab_text,
-                                            sty.text___9Apoa,
+                                            sty.text,
                                             "skeleton-b"
                                           )}
                                         >
@@ -454,11 +450,13 @@ function PlasmicHub__RenderFunc(props: {
                                       )}
                                     >
                                       <h3
+                                        data-plasmic-name={"h3"}
+                                        data-plasmic-override={overrides.h3}
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.h3,
                                           projectcss.__wab_text,
-                                          sty.h3__m0Wil,
+                                          sty.h3,
                                           "skeleton-a"
                                         )}
                                       >
@@ -693,537 +691,18 @@ function PlasmicHub__RenderFunc(props: {
                               const currentHotel = __plasmic_item_1;
                               const hotelIndex = __plasmic_idx_1;
                               return (
-                                <PlasmicLink__
+                                <HotelCard
+                                  data-plasmic-name={"hotelCard"}
+                                  data-plasmic-override={overrides.hotelCard}
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.a,
-                                    sty.link__nCS
+                                    "__wab_instance",
+                                    sty.hotelCard
                                   )}
-                                  component={Link}
-                                  href={(() => {
-                                    try {
-                                      return `https://sindibad.iq/hotels/${currentCity.name}/${currentHotel.hotelId}`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
+                                  colors={$state.colors}
+                                  currentCity={currentCity}
+                                  currentHotel={currentHotel}
                                   key={hotelIndex}
-                                  platform={"nextjs"}
-                                  target={"_blank"}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__pHopP
-                                    )}
-                                  >
-                                    {(() => {
-                                      const child$Props = {
-                                        arrows: false,
-                                        beforeChange: async (
-                                          ...eventArgs: any
-                                        ) => {
-                                          generateStateOnChangePropForCodeComponents(
-                                            $state,
-                                            "currentSlide",
-                                            [
-                                              "sliderCarousel",
-                                              __plasmic_idx_0,
-                                              __plasmic_idx_1,
-                                              "currentSlide"
-                                            ],
-                                            SliderWrapper_Helpers
-                                          ).apply(null, eventArgs);
-                                        },
-                                        centerMode: false,
-                                        className: classNames(
-                                          "__wab_instance",
-                                          sty.sliderCarousel
-                                        ),
-                                        dots: true,
-                                        initialSlide: generateStateValueProp(
-                                          $state,
-                                          [
-                                            "sliderCarousel",
-                                            __plasmic_idx_0,
-                                            __plasmic_idx_1,
-                                            "currentSlide"
-                                          ]
-                                        ),
-                                        pauseOnFocus: true,
-                                        ref: ref => {
-                                          $refs["sliderCarousel"] = ref;
-                                        },
-                                        sliderScopeClassName:
-                                          sty["sliderCarousel__slider"],
-                                        swipeToSlide: true
-                                      };
-                                      initializeCodeComponentStates(
-                                        $state,
-                                        [
-                                          {
-                                            name: "currentSlide",
-                                            plasmicStateName:
-                                              "sliderCarousel[][].currentSlide"
-                                          }
-                                        ],
-                                        [__plasmic_idx_0, __plasmic_idx_1],
-                                        SliderWrapper_Helpers ?? {},
-                                        child$Props
-                                      );
-                                      initializePlasmicStates(
-                                        $state,
-                                        [
-                                          {
-                                            name: "sliderCarousel[][].currentSlide",
-                                            initFunc: ({
-                                              $props,
-                                              $state,
-                                              $queries
-                                            }) => 0
-                                          }
-                                        ],
-                                        [__plasmic_idx_0, __plasmic_idx_1]
-                                      );
-                                      return (
-                                        <SliderWrapper
-                                          data-plasmic-name={"sliderCarousel"}
-                                          data-plasmic-override={
-                                            overrides.sliderCarousel
-                                          }
-                                          {...child$Props}
-                                        >
-                                          {(_par =>
-                                            !_par
-                                              ? []
-                                              : Array.isArray(_par)
-                                              ? _par
-                                              : [_par])(
-                                            (() => {
-                                              try {
-                                                return currentHotel.content
-                                                  .images;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return [];
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ).map(
-                                            (
-                                              __plasmic_item_2,
-                                              __plasmic_idx_2
-                                            ) => {
-                                              const currentImage =
-                                                __plasmic_item_2;
-                                              const imageIndex =
-                                                __plasmic_idx_2;
-                                              return (
-                                                <div
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    sty.freeBox__wkfhe
-                                                  )}
-                                                  key={imageIndex}
-                                                >
-                                                  <PlasmicImg__
-                                                    alt={""}
-                                                    className={classNames(
-                                                      sty.img__ukEba
-                                                    )}
-                                                    displayHeight={"100%"}
-                                                    displayMaxHeight={"none"}
-                                                    displayMaxWidth={"none"}
-                                                    displayMinHeight={"0"}
-                                                    displayMinWidth={"0"}
-                                                    displayWidth={"320px"}
-                                                    src={(() => {
-                                                      try {
-                                                        return currentImage.url;
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()}
-                                                  />
-                                                </div>
-                                              );
-                                            }
-                                          )}
-                                        </SliderWrapper>
-                                      );
-                                    })()}
-                                    {(() => {
-                                      try {
-                                        return currentHotel.content.rate > 3;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })() ? (
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__dz2Gb
-                                        )}
-                                        style={(() => {
-                                          try {
-                                            return (() => {
-                                              const r =
-                                                Math.round(
-                                                  currentHotel.content.rate * 10
-                                                ) / 10;
-                                              const lvl =
-                                                r > 9.5
-                                                  ? "purple"
-                                                  : r > 8
-                                                  ? "green"
-                                                  : r > 6.5
-                                                  ? "blue"
-                                                  : r > 5
-                                                  ? "yellow"
-                                                  : "red";
-                                              return {
-                                                "background-color":
-                                                  $state.colors[
-                                                    lvl + "-accent"
-                                                  ],
-                                                color:
-                                                  $state.colors[lvl + "-main"]
-                                              };
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      >
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__o2B3A
-                                          )}
-                                          dir={"ltr"}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return "/10";
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__sG4Ie
-                                          )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return (
-                                                  Math.round(
-                                                    currentHotel.content.rate *
-                                                      10
-                                                  ) / 10
-                                                );
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
-                                        <Embed
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.embedHtml__pz8Ua
-                                          )}
-                                          code={
-                                            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor"/>\n</svg>\n'
-                                          }
-                                        />
-                                      </Stack__>
-                                    ) : null}
-                                  </div>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__k3XDa
-                                    )}
-                                  >
-                                    <h3
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.h3,
-                                        projectcss.__wab_text,
-                                        sty.h3__yELe7
-                                      )}
-                                    >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return currentHotel.content.title
-                                              .locale;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
-                                    </h3>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__sRdgz
-                                      )}
-                                    >
-                                      {(_par =>
-                                        !_par
-                                          ? []
-                                          : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
-                                        (() => {
-                                          try {
-                                            return (() => {
-                                              const rep = [];
-                                              for (
-                                                let i = 1;
-                                                i <= currentHotel.content.star;
-                                                i++
-                                              ) {
-                                                rep.push(i);
-                                              }
-                                              return rep;
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return [];
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ).map(
-                                        (__plasmic_item_2, __plasmic_idx_2) => {
-                                          const currentItem = __plasmic_item_2;
-                                          const currentIndex = __plasmic_idx_2;
-                                          return (
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                sty.freeBox__m6NfA
-                                              )}
-                                              key={currentIndex}
-                                            >
-                                              <Embed
-                                                className={classNames(
-                                                  "__wab_instance",
-                                                  sty.embedHtml__qQ9Bl
-                                                )}
-                                                code={
-                                                  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" fill="currentColor"/>\n</svg>\n'
-                                                }
-                                              />
-                                            </div>
-                                          );
-                                        }
-                                      )}
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__g2Xr
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return (
-                                                currentHotel.content.star +
-                                                " " +
-                                                "نجوم"
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                    </div>
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__afDre
-                                      )}
-                                    >
-                                      {(_par =>
-                                        !_par
-                                          ? []
-                                          : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
-                                        (() => {
-                                          try {
-                                            return currentHotel.content.tags;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return [];
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ).map(
-                                        (__plasmic_item_2, __plasmic_idx_2) => {
-                                          const currentTag = __plasmic_item_2;
-                                          const tagIndex = __plasmic_idx_2;
-                                          return (
-                                            <Stack__
-                                              as={"div"}
-                                              hasGap={true}
-                                              className={classNames(
-                                                projectcss.all,
-                                                sty.freeBox___799X1
-                                              )}
-                                              key={tagIndex}
-                                            >
-                                              <PlasmicImg__
-                                                alt={""}
-                                                className={classNames(
-                                                  sty.img__nzCzT
-                                                )}
-                                                displayHeight={"16px"}
-                                                displayMaxHeight={"none"}
-                                                displayMaxWidth={"100%"}
-                                                displayMinHeight={"0"}
-                                                displayMinWidth={"0"}
-                                                displayWidth={"16px"}
-                                                loading={"lazy"}
-                                                src={(() => {
-                                                  try {
-                                                    return currentTag.tagIconUrl;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return undefined;
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}
-                                              />
-
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.__wab_text,
-                                                  sty.text___6Q1Mu
-                                                )}
-                                              >
-                                                <React.Fragment>
-                                                  {(() => {
-                                                    try {
-                                                      return currentTag
-                                                        .displayText.locale;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return "";
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                </React.Fragment>
-                                              </div>
-                                            </Stack__>
-                                          );
-                                        }
-                                      )}
-                                    </Stack__>
-                                  </Stack__>
-                                </PlasmicLink__>
+                                />
                               );
                             })}
                           </Stack__>
@@ -1276,11 +755,13 @@ function PlasmicHub__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <PlasmicLink__
+                      data-plasmic-name={"link"}
+                      data-plasmic-override={overrides.link}
                       className={classNames(
                         projectcss.all,
                         projectcss.a,
                         projectcss.__wab_text,
-                        sty.link__d3ZAj
+                        sty.link
                       )}
                       component={Link}
                       href={(() => {
@@ -1341,7 +822,10 @@ const PlasmicDescendants = {
     "section",
     "h1",
     "httpRestApiFetcher",
-    "sliderCarousel",
+    "text",
+    "h3",
+    "hotelCard",
+    "link",
     "skeletonStyles"
   ],
   basicHeaderMain: ["basicHeaderMain"],
@@ -1349,12 +833,18 @@ const PlasmicDescendants = {
     "section",
     "h1",
     "httpRestApiFetcher",
-    "sliderCarousel",
+    "text",
+    "h3",
+    "hotelCard",
+    "link",
     "skeletonStyles"
   ],
   h1: ["h1"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "sliderCarousel"],
-  sliderCarousel: ["sliderCarousel"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "text", "h3", "hotelCard"],
+  text: ["text"],
+  h3: ["h3"],
+  hotelCard: ["hotelCard"],
+  link: ["link"],
   skeletonStyles: ["skeletonStyles"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1366,7 +856,10 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   httpRestApiFetcher: typeof DataFetcher;
-  sliderCarousel: typeof SliderWrapper;
+  text: "div";
+  h3: "h3";
+  hotelCard: typeof HotelCard;
+  link: "a";
   skeletonStyles: typeof Embed;
 };
 
@@ -1434,7 +927,10 @@ export const PlasmicHub = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    sliderCarousel: makeNodeComponent("sliderCarousel"),
+    text: makeNodeComponent("text"),
+    h3: makeNodeComponent("h3"),
+    hotelCard: makeNodeComponent("hotelCard"),
+    link: makeNodeComponent("link"),
     skeletonStyles: makeNodeComponent("skeletonStyles"),
 
     // Metadata about props expected for PlasmicHub
