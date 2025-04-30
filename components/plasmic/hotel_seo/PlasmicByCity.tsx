@@ -767,7 +767,7 @@ function PlasmicByCity__RenderFunc(props: {
                   }
                   method={"GET"}
                   noLayout={false}
-                  previewSpinner={false}
+                  previewSpinner={true}
                   url={`https://api.sindibad.iq/api/v1/hotel-content/HotelDetails/get-city-hotel-contents?cityId=${$ctx.params.city}&pageSize=20&pageNumber=${$state.page}`}
                 >
                   <DataCtxReader__>
