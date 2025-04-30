@@ -495,7 +495,7 @@
           "projectId": "k5hHCtYSicJ5vZr4xW3KEs",
           "renderModuleFilePath": "plasmic/hotel_seo/PlasmicHub.tsx",
           "importSpec": {
-            "modulePath": "../pages/main.tsx"
+            "modulePath": "../pages/index.tsx"
           },
           "cssFilePath": "plasmic/hotel_seo/PlasmicHub.module.css",
           "scheme": "blackbox",
@@ -509,7 +509,7 @@
           "projectId": "k5hHCtYSicJ5vZr4xW3KEs",
           "renderModuleFilePath": "plasmic/hotel_seo/PlasmicByCity.tsx",
           "importSpec": {
-            "modulePath": "../pages/result/[city].tsx"
+            "modulePath": "../pages/[city].tsx"
           },
           "cssFilePath": "plasmic/hotel_seo/PlasmicByCity.module.css",
           "scheme": "blackbox",

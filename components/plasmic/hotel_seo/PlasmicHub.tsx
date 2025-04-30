@@ -178,21 +178,7 @@ function PlasmicHub__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9C9BT12S2"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-L9C9BT12S2');
-            `,
-          }}
-        />
-        <link rel="icon" href="/favicon.ico"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      </Head>
+      <Head></Head>
 
       <style>{`
         body {
