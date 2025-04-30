@@ -7,8 +7,8 @@ import {
 
 export function assetMiddleware(next: NextMiddleware) {
   return async (request: NextRequest, _next: NextFetchEvent) => {
-    if (request.nextUrl.href.includes('/gulf-cup/_next')) {
-      const path = request.nextUrl.href.replace('/gulf-cup/_next', '/_next');
+    if (request.nextUrl.href.includes('/hotel/_next')) {
+      const path = request.nextUrl.href.replace('/hotel/_next', '/_next');
       console.log('Rewriting URL:', request.nextUrl.href, '->', path);
       return NextResponse.rewrite(path);
     }
@@ -18,5 +18,5 @@ export function assetMiddleware(next: NextMiddleware) {
 }
 
 export const config = {
-  matcher: '/gulf-cup/_next',
+  matcher: '/hotel/_next',
 };
