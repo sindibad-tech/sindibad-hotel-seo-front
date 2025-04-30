@@ -208,18 +208,53 @@ function Plasmic_404__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={"100%"}
               loading={"lazy"}
-              src={{
-                src: "/plasmic/hotel_seo/images/_404ErrorPageNotFoundPng.png",
-                fullWidth: 500,
-                fullHeight: 278,
-                aspectRatio: undefined
-              }}
+              src={(() => {
+                try {
+                  return `https://static.sindibad.iq/upload/S&D/general/404Error.png`;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return {
+                      src: "/plasmic/hotel_seo/images/_404ErrorPageNotFoundPng.png",
+                      fullWidth: 500,
+                      fullHeight: 278,
+                      aspectRatio: undefined
+                    };
+                  }
+                  throw e;
+                }
+              })()}
             />
 
             <ButtonButton
               data-plasmic-name={"buttonButton"}
               data-plasmic-override={overrides.buttonButton}
               className={classNames("__wab_instance", sty.buttonButton)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (window.location.href = `https://sindibad.iq/hotel`);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               text={
                 "\u0634\u0627\u0647\u062f \u0623\u0641\u0636\u0644 \u0641\u0646\u0627\u062f\u0642"
               }
