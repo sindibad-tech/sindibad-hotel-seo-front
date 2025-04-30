@@ -59,7 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import ImageLightbox from "../../ImageLightbox"; // plasmic-import: R9Ke9i1r-gBN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
 
@@ -96,10 +95,8 @@ export const PlasmicHotelCard__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicHotelCard__OverridesType = {
   root?: Flex__<"div">;
-  imageLightbox?: Flex__<typeof ImageLightbox>;
   link?: Flex__<"a"> & Partial<LinkProps>;
   h3?: Flex__<"h3">;
-  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultHotelCardProps {
@@ -203,26 +200,18 @@ function PlasmicHotelCard__RenderFunc(props: {
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox___4QndW)}>
-        <ImageLightbox
-          data-plasmic-name={"imageLightbox"}
-          data-plasmic-override={overrides.imageLightbox}
-          className={classNames("__wab_instance", sty.imageLightbox, {
-            [sty.imageLightboxfill]: hasVariant($state, "fill", "fill")
-          })}
-          images={(() => {
-            try {
-              return $props.currentHotel.content.images;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-          thumbnail={(() => {
+        <PlasmicImg__
+          alt={""}
+          className={classNames(sty.img__yMnN1)}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"auto"}
+          height={"160px"}
+          loading={"lazy"}
+          src={(() => {
             try {
               return $props.currentHotel.content.images[$state.slideNum].url;
             } catch (e) {
@@ -584,10 +573,8 @@ function PlasmicHotelCard__RenderFunc(props: {
                 key={tagIndex}
               >
                 <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img)}
+                  className={classNames(sty.img__lnX7K)}
                   displayHeight={"16px"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
@@ -643,21 +630,17 @@ function PlasmicHotelCard__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "imageLightbox", "link", "h3", "img"],
-  imageLightbox: ["imageLightbox"],
-  link: ["link", "h3", "img"],
-  h3: ["h3"],
-  img: ["img"]
+  root: ["root", "link", "h3"],
+  link: ["link", "h3"],
+  h3: ["h3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  imageLightbox: typeof ImageLightbox;
   link: "a";
   h3: "h3";
-  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -720,10 +703,8 @@ export const PlasmicHotelCard = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    imageLightbox: makeNodeComponent("imageLightbox"),
     link: makeNodeComponent("link"),
     h3: makeNodeComponent("h3"),
-    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicHotelCard
     internalVariantProps: PlasmicHotelCard__VariantProps,
