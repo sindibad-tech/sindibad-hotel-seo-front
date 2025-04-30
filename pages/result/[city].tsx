@@ -5,32 +5,53 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 
 import { PlasmicByCity } from "../../components/plasmic/hotel_seo/PlasmicByCity";
 import { useRouter } from "next/router";
+import { extractPlasmicQueryData } from '@plasmicapp/react-web/lib/prepass';
+import { PlasmicQueryDataProvider } from '@plasmicapp/react-web/lib/query';
+export async function getStaticPaths() {
+  const paths: any = [];
 
-function ByCity() {
-  // Use PlasmicByCity to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicByCity are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, PlasmicByCity is wrapped by your project's global
-  // variant context providers. These wrappers may be moved to
-  // Next.js Custom App component
-  // (https://nextjs.org/docs/advanced-features/custom-app).
+  return {
+    paths,
+    fallback: 'blocking'
+  };
+}
+export async function getStaticProps(context: any) {
+  const { city } = context.params;
+  const query = context.query;
 
-  return (
+  const queryCache = await extractPlasmicQueryData(
     <PageParamsProvider__
-      route={useRouter()?.pathname}
-      params={useRouter()?.query}
-      query={useRouter()?.query}
+      route={context.resolvedUrl}
+      params={{ ...query, city }}
     >
       <PlasmicByCity />
+    </PageParamsProvider__>
+  );
+  console.log("queryCache:", JSON.stringify(queryCache));
+  const id = "a9907b33-ec42-4b30-8981-77f57635e9e0"
+  const isOkay = Object.keys(queryCache).some(k => k.includes(id))
+  if (!isOkay) {
+    return {
+      notFound: true,
+    };
+  } else {
+    return {
+      props: { queryCache, city, query },
+      revalidate: 864000
+    };
+  }
+}
+
+function ByCity({ queryCache, city, query }: any) {
+  const router = useRouter();
+  return (
+    <PageParamsProvider__
+      route={router.pathname}
+      params={{ ...query, city }}
+    >
+      <PlasmicQueryDataProvider prefetchedCache={queryCache}>
+        <PlasmicByCity />
+      </PlasmicQueryDataProvider>
     </PageParamsProvider__>
   );
 }
