@@ -236,14 +236,9 @@ function PlasmicHub__RenderFunc(props: {
                     { name: "istanbul", title: "إسطنبول" },
                     { name: "dubai", title: "دبي" },
                     { name: "antalya", title: "أنطاليا" },
-                    // { "name": "cairo", "title": "القاهرة" },
                     { name: "beirut", title: "بيروت" },
-                    // { "name": "baghdad", "title": "بغداد" },
-                    { name: "tehran", title: "طهران" }
-                    // { "name": "damascus", "title": "دمشق" },
-                    // { "name": "bali", "title": "بالي" },
-                    // { "name": "erbil", "title": "أربيل" },
-                    // { "name": "london", "title": "لندن" }
+                    { name: "tehran", title: "طهران" },
+                    { name: "muscat", title: "مسقط" }
                   ];
                 } catch (e) {
                   if (
@@ -877,112 +872,130 @@ function PlasmicHub__RenderFunc(props: {
                                         </SliderWrapper>
                                       );
                                     })()}
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__dz2Gb
-                                      )}
-                                      style={(() => {
-                                        try {
-                                          return (() => {
-                                            const r =
-                                              Math.round(
-                                                currentHotel.content.rate * 10
-                                              ) / 10;
-                                            const lvl =
-                                              r > 9.5
-                                                ? "purple"
-                                                : r > 8
-                                                ? "green"
-                                                : r > 6.5
-                                                ? "blue"
-                                                : r > 5
-                                                ? "yellow"
-                                                : "red";
-                                            return {
-                                              "background-color":
-                                                $state.colors[lvl + "-accent"],
-                                              color:
-                                                $state.colors[lvl + "-main"]
-                                            };
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
+                                    {(() => {
+                                      try {
+                                        return currentHotel.content.rate > 3;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
                                         }
-                                      })()}
-                                    >
-                                      <div
+                                        throw e;
+                                      }
+                                    })() ? (
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__o2B3A
+                                          sty.freeBox__dz2Gb
                                         )}
-                                        dir={"ltr"}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return "/10";
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__sG4Ie
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return (
+                                        style={(() => {
+                                          try {
+                                            return (() => {
+                                              const r =
                                                 Math.round(
                                                   currentHotel.content.rate * 10
-                                                ) / 10
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
+                                                ) / 10;
+                                              const lvl =
+                                                r > 9.5
+                                                  ? "purple"
+                                                  : r > 8
+                                                  ? "green"
+                                                  : r > 6.5
+                                                  ? "blue"
+                                                  : r > 5
+                                                  ? "yellow"
+                                                  : "red";
+                                              return {
+                                                "background-color":
+                                                  $state.colors[
+                                                    lvl + "-accent"
+                                                  ],
+                                                color:
+                                                  $state.colors[lvl + "-main"]
+                                              };
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
                                             }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                      <Embed
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.embedHtml__pz8Ua
-                                        )}
-                                        code={
-                                          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor"/>\n</svg>\n'
-                                        }
-                                      />
-                                    </Stack__>
+                                            throw e;
+                                          }
+                                        })()}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__o2B3A
+                                          )}
+                                          dir={"ltr"}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return "/10";
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__sG4Ie
+                                          )}
+                                        >
+                                          <React.Fragment>
+                                            {(() => {
+                                              try {
+                                                return (
+                                                  Math.round(
+                                                    currentHotel.content.rate *
+                                                      10
+                                                  ) / 10
+                                                );
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return "";
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
+                                          </React.Fragment>
+                                        </div>
+                                        <Embed
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.embedHtml__pz8Ua
+                                          )}
+                                          code={
+                                            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor"/>\n</svg>\n'
+                                          }
+                                        />
+                                      </Stack__>
+                                    ) : null}
                                   </div>
                                   <Stack__
                                     as={"div"}
@@ -1239,26 +1252,12 @@ function PlasmicHub__RenderFunc(props: {
                   (() => {
                     try {
                       return [
-                        { name: "kirkuk", title: "كركوك" },
-                        { name: "doha", title: "الدوحة" },
                         { name: "rasht", title: "رشت" },
                         { name: "abadan", title: "عبادان" },
-                        { name: "amsterdam", title: "أمستردام" },
-                        { name: "dusseldorf", title: "دوسلدورف" },
-                        { name: "bali", title: "بالي" },
-                        { name: "kuala_lumpur", title: "كوالالمبور" },
-                        { name: "mumbai", title: "مومباي" },
-                        { name: "delhi", title: "دلهي" },
                         { name: "isfahan", title: "أصفهان" },
-                        { name: "erbil", title: "أربيل" },
-                        { name: "london", title: "لندن" },
                         { name: "tabriz", title: "تبريز" },
                         { name: "sharjah", title: "الشارقة" },
-                        { name: "najaf", title: "النجف" },
-                        { name: "basra", title: "البصرة" },
-                        { name: "karbala", title: "كربلاء" },
-                        { name: "muscat", title: "مسقط" },
-                        { name: "amman", title: "عمّان" },
+                        { name: "shiraz", title: "شيراز" },
                         { name: "ramsar", title: "رامسر" },
                         { name: "kermanshah", title: "كرمانشاه" }
                       ];

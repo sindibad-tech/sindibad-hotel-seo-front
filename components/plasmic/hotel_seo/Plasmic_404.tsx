@@ -221,7 +221,7 @@ function Plasmic_404__RenderFunc(props: {
               data-plasmic-override={overrides.buttonButton}
               className={classNames("__wab_instance", sty.buttonButton)}
               text={
-                "\u0634\u0627\u0647\u062f \u0627\u0644\u0645\u0637\u0627\u0631\u0627\u062a \u0627\u0644\u0623\u062e\u0631\u0649"
+                "\u0634\u0627\u0647\u062f \u0623\u0641\u0636\u0644 \u0641\u0646\u0627\u062f\u0642"
               }
             />
           </Stack__>

@@ -98,6 +98,7 @@ export type PlasmicByCity__OverridesType = {
   sliderCarousel2?: Flex__<typeof SliderWrapper>;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
   sliderCarousel3?: Flex__<typeof SliderWrapper>;
+  h2?: Flex__<"h2">;
   skeletonStyles?: Flex__<typeof Embed>;
 };
 
@@ -2266,6 +2267,92 @@ function PlasmicByCity__RenderFunc(props: {
                 ) : null}
               </Stack__>
             </Stack__>
+            <div className={classNames(projectcss.all, sty.freeBox__u0SQt)}>
+              <h2
+                data-plasmic-name={"h2"}
+                data-plasmic-override={overrides.h2}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2
+                )}
+              >
+                {
+                  "\u0627\u0644\u0648\u062c\u0647\u0627\u062a \u0627\u0644\u0623\u062e\u0631\u0649"
+                }
+              </h2>
+              <div className={classNames(projectcss.all, sty.freeBox__pxv4H)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [
+                        { name: "mashhad", title: "مشهد" },
+                        { name: "istanbul", title: "إسطنبول" },
+                        { name: "dubai", title: "دبي" },
+                        { name: "antalya", title: "أنطاليا" },
+                        { name: "beirut", title: "بيروت" },
+                        { name: "tehran", title: "طهران" },
+                        { name: "muscat", title: "مسقط" }
+                      ].filter(c => c.name != $ctx.params.city);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <PlasmicLink__
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        projectcss.__wab_text,
+                        sty.link__hzabS
+                      )}
+                      component={Link}
+                      href={(() => {
+                        try {
+                          return `https://sindibad.iq/hotel/${currentItem.name}`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      key={currentIndex}
+                      platform={"nextjs"}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return currentItem.title;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </PlasmicLink__>
+                  );
+                })}
+              </div>
+            </div>
           </Stack__>
           <Embed
             data-plasmic-name={"skeletonStyles"}
@@ -2290,6 +2377,7 @@ const PlasmicDescendants = {
     "sliderCarousel2",
     "httpRestApiFetcher",
     "sliderCarousel3",
+    "h2",
     "skeletonStyles"
   ],
   basicHeaderMain: ["basicHeaderMain"],
@@ -2298,12 +2386,14 @@ const PlasmicDescendants = {
     "h1",
     "sliderCarousel2",
     "httpRestApiFetcher",
-    "sliderCarousel3"
+    "sliderCarousel3",
+    "h2"
   ],
   h1: ["h1"],
   sliderCarousel2: ["sliderCarousel2"],
   httpRestApiFetcher: ["httpRestApiFetcher", "sliderCarousel3"],
   sliderCarousel3: ["sliderCarousel3"],
+  h2: ["h2"],
   skeletonStyles: ["skeletonStyles"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -2317,6 +2407,7 @@ type NodeDefaultElementType = {
   sliderCarousel2: typeof SliderWrapper;
   httpRestApiFetcher: typeof DataFetcher;
   sliderCarousel3: typeof SliderWrapper;
+  h2: "h2";
   skeletonStyles: typeof Embed;
 };
 
@@ -2386,6 +2477,7 @@ export const PlasmicByCity = Object.assign(
     sliderCarousel2: makeNodeComponent("sliderCarousel2"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     sliderCarousel3: makeNodeComponent("sliderCarousel3"),
+    h2: makeNodeComponent("h2"),
     skeletonStyles: makeNodeComponent("skeletonStyles"),
 
     // Metadata about props expected for PlasmicByCity
