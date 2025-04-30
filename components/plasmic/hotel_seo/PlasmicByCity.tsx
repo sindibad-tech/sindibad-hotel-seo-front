@@ -162,39 +162,70 @@ function PlasmicByCity__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return [
-                { name: "dubai", title: "دبي" },
-                { name: "istanbul", title: "إسطنبول" },
-                { name: "mashhad", title: "مشهد" },
-                { name: "antalya", title: "أنطاليا" },
-                { name: "tehran", title: "طهران" },
-                { name: "cairo", title: "القاهرة" },
-                { name: "beirut", title: "بيروت" },
-                { name: "damascus", title: "دمشق" },
-                { name: "kirkuk", title: "كركوك" },
-                { name: "doha", title: "الدوحة" },
-                { name: "baghdad", title: "بغداد" },
-                { name: "rasht", title: "رشت" },
-                { name: "abadan", title: "عبادان" },
-                { name: "amsterdam", title: "أمستردام" },
-                { name: "dusseldorf", title: "دوسلدورف" },
-                { name: "bali", title: "بالي" },
-                { name: "kuala_lumpur", title: "كوالالمبور" },
-                { name: "mumbai", title: "مومباي" },
-                { name: "delhi", title: "دلهي" },
-                { name: "isfahan", title: "أصفهان" },
-                { name: "erbil", title: "أربيل" },
-                { name: "london", title: "لندن" },
-                { name: "tabriz", title: "تبريز" },
-                { name: "sharjah", title: "الشارقة" },
-                { name: "najaf", title: "النجف" },
-                { name: "basra", title: "البصرة" },
-                { name: "karbala", title: "كربلاء" },
-                { name: "muscat", title: "مسقط" },
-                { name: "amman", title: "عمّان" },
-                { name: "ramsar", title: "رامسر" },
-                { name: "kermanshah", title: "كرمانشاه" }
-              ].find(c => c.name == $ctx.params.city).title;
+              return (() => {
+                return [
+                  {
+                    name: "mashhad",
+                    title: "مشهد"
+                  },
+                  {
+                    name: "istanbul",
+                    title: "إسطنبول"
+                  },
+                  {
+                    name: "dubai",
+                    title: "دبي"
+                  },
+                  {
+                    name: "antalya",
+                    title: "أنطاليا"
+                  },
+                  {
+                    name: "beirut",
+                    title: "بيروت"
+                  },
+                  {
+                    name: "tehran",
+                    title: "طهران"
+                  },
+                  {
+                    name: "muscat",
+                    title: "مسقط"
+                  },
+                  {
+                    name: "rasht",
+                    title: "رشت"
+                  },
+                  {
+                    name: "abadan",
+                    title: "عبادان"
+                  },
+                  {
+                    name: "isfahan",
+                    title: "أصفهان"
+                  },
+                  {
+                    name: "tabriz",
+                    title: "تبريز"
+                  },
+                  {
+                    name: "sharjah",
+                    title: "الشارقة"
+                  },
+                  {
+                    name: "shiraz",
+                    title: "شيراز"
+                  },
+                  {
+                    name: "ramsar",
+                    title: "رامسر"
+                  },
+                  {
+                    name: "kermanshah",
+                    title: "كرمانشاه"
+                  }
+                ].find(c => c.name == $ctx.params.city).title;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -269,21 +300,7 @@ function PlasmicByCity__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9C9BT12S2"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-L9C9BT12S2');
-            `,
-          }}
-        />
-        <link rel="icon" href="/favicon.ico"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      </Head>
+      <Head></Head>
 
       <style>{`
         body {
