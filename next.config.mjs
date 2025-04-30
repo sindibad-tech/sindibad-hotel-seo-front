@@ -6,7 +6,7 @@ const nextConfig = {
   },
   trailingSlash: true,
   reactStrictMode: true,
-  assetPrefix: "/hotel-seo",
+  assetPrefix: "/hotel",
   async headers() {
     return [
       {
