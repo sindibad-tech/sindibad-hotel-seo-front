@@ -1,0 +1,9 @@
+.root {
+  color: var(--token-1oj9qpofR0r6);
+  height: 1em;
+  width: auto;
+  min-height: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+  display: inline-block;
+}

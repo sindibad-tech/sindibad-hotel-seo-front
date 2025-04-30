@@ -1,0 +1,43 @@
+.root {
+  justify-self: flex-start;
+  height: 40px;
+  width: auto;
+  flex-direction: row;
+  display: inline-flex;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.root > :global(.__wab_flex-container) {
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: calc(0px - 8px);
+  width: calc(100% + 8px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 8px;
+}
+.brandingSindibadLogo:global(.__wab_instance) {
+  width: auto;
+  height: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  min-height: 0;
+}
+.brandingSindibadLogotypeOnly:global(.__wab_instance) {
+  display: none;
+}
+.brandingSindibadType:global(.__wab_instance) {
+  width: auto;
+  height: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  min-height: 0;
+}
+.brandingSindibadTypelogoOnly:global(.__wab_instance) {
+  display: none;
+}

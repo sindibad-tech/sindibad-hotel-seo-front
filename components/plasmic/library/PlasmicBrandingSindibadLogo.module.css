@@ -1,0 +1,9 @@
+.root {
+  color: var(--token-1oj9qpofR0r6);
+  flex-grow: 1;
+  align-self: auto;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}

@@ -1,0 +1,179 @@
+.root {
+  height: 100%;
+  width: 100%;
+  max-width: var(--token-Ls4kjfvyF7vL);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transform: none;
+  min-width: 0;
+  min-height: 0;
+}
+.link {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  min-width: 0;
+  min-height: 0;
+}
+.img__ktEV {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--token-zgYLUsWZe4ju);
+}
+.img__ktEV > picture > img {
+  object-fit: cover;
+}
+.freeBox__k0ZdZ {
+  width: auto;
+  height: auto;
+  justify-items: center;
+  justify-self: stretch;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  background: #7a7a7acc;
+  z-index: 100;
+  padding: var(--token-Tlf-ABrmUB1t) var(--token-6mQmIEer3GeD);
+}
+.freeBox__k0ZdZ > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+  margin-top: calc(0px - var(--token-8MkIlsFrrWgx));
+  height: calc(100% + var(--token-8MkIlsFrrWgx));
+}
+.freeBox__k0ZdZ > :global(.__wab_flex-container) > *,
+.freeBox__k0ZdZ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__k0ZdZ > :global(.__wab_flex-container) > picture > img,
+.freeBox__k0ZdZ
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+  margin-top: var(--token-8MkIlsFrrWgx);
+}
+.freeBoxopen__k0ZdZy196S {
+  display: block;
+}
+@media (min-width: 0px) and (max-width: 743px) {
+  .freeBoxopen__k0ZdZy196S {
+    padding-right: var(--token-Tlf-ABrmUB1t);
+    padding-left: var(--token-Tlf-ABrmUB1t);
+  }
+}
+.buttonButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: fixed;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  right: auto;
+  width: var(--token-8MkIlsFrrWgx);
+  height: var(--token-8MkIlsFrrWgx);
+  bottom: var(--token-8MkIlsFrrWgx);
+  flex-shrink: 0;
+}
+.freeBox__kSjzz {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+.freeBox__kSjzz > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(0px - var(--token-yr21nH5Wpao9));
+  width: calc(100% + var(--token-yr21nH5Wpao9));
+}
+.freeBox__kSjzz > :global(.__wab_flex-container) > *,
+.freeBox__kSjzz > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__kSjzz > :global(.__wab_flex-container) > picture > img,
+.freeBox__kSjzz
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: var(--token-yr21nH5Wpao9);
+}
+.freeBox__rXHd {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: auto;
+}
+.freeBox___7RFWo {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+  border-radius: var(--token-DlPZGdXvXSmC);
+}
+@media (max-width: 1439px) {
+  .freeBoxopen___7RFWoy196S {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 1279px) {
+  .freeBoxopen___7RFWoy196S {
+    width: 90%;
+  }
+}
+@media (max-width: 833px) {
+  .freeBoxopen___7RFWoy196S {
+    width: 94%;
+  }
+}
+@media (min-width: 0px) and (max-width: 743px) {
+  .freeBoxopen___7RFWoy196S {
+    width: 96%;
+  }
+}
+.img__liOo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-grow: 1;
+  max-width: 92%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--token-DlPZGdXvXSmC);
+}
+.img__liOo > picture > img {
+  object-fit: contain;
+}
+@media (max-width: 1279px) {
+  .imgopen__liOOy196S {
+    max-width: 96%;
+  }
+}
+@media (max-width: 833px) {
+  .imgopen__liOOy196S {
+    max-width: 96%;
+  }
+}
+@media (min-width: 0px) and (max-width: 743px) {
+  .imgopen__liOOy196S {
+    max-width: 96%;
+  }
+}

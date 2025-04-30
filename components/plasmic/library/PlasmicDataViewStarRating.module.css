@@ -1,0 +1,77 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.freeBox {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  left: auto;
+  top: 0px;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  right: 0px;
+  justify-content: flex-end;
+}
+.embedHtml___5KcC:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-C3Ogbj_EsMjF);
+  flex-shrink: 0;
+}
+.embedHtml__zktUv:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-C3Ogbj_EsMjF);
+  flex-shrink: 0;
+}
+.embedHtml__h4Z2S:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-C3Ogbj_EsMjF);
+  flex-shrink: 0;
+}
+.embedHtml__fk8Xl:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-C3Ogbj_EsMjF);
+  flex-shrink: 0;
+}
+.embedHtml__cMkZ7:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-C3Ogbj_EsMjF);
+  flex-shrink: 0;
+}
+.embedHtml__xm58B:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-0DGTOpOwclwy);
+  flex-shrink: 0;
+}
+.embedHtml__gNisj:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-0DGTOpOwclwy);
+  flex-shrink: 0;
+}
+.embedHtml__dxrv7:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-0DGTOpOwclwy);
+  flex-shrink: 0;
+}
+.embedHtml__yagOf:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-0DGTOpOwclwy);
+  flex-shrink: 0;
+}
+.embedHtml__hoQr7:global(.__wab_instance) {
+  width: var(--token-Tlf-ABrmUB1t);
+  height: var(--token-Tlf-ABrmUB1t);
+  color: var(--token-0DGTOpOwclwy);
+  flex-shrink: 0;
+}

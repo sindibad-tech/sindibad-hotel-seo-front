@@ -1,0 +1,67 @@
+.root {
+  background: var(--token-bvlI1E1je5LA);
+  color: var(--token-wM6gXuDsCB9r);
+  justify-self: center;
+  position: relative;
+  text-align: center;
+  border-radius: var(--token-oAFs2bB0aJsh);
+  padding: var(--token-oAFs2bB0aJsh);
+}
+.rootcoloring_green {
+  background: var(--token-RfjgRm_vwpFE);
+}
+.rootcoloring_red {
+  background: var(--token-1IShhd6hDkAR);
+}
+.rootcoloring_gray {
+  background: var(--token-Ao7MqK40UU3D);
+  color: var(--token-5mZ_zXFml4u8);
+}
+.rootcoloring_yellow {
+  background: var(--token-wNrBF46FiYvD);
+}
+.rootcoloring_blue {
+  background: var(--token-ivI5LngZjhOG);
+}
+.rootcoloring_orange {
+  background: var(--token-1oj9qpofR0r6);
+}
+.rootcoloring_bronze {
+  background: #ca3702;
+}
+.rootbig {
+  padding-right: var(--token-Pky-E4CaFvs4);
+  padding-left: var(--token-Pky-E4CaFvs4);
+}
+.rootinverted {
+  color: var(--token-5mZ_zXFml4u8);
+  background: var(--token-wM6gXuDsCB9r);
+}
+.rootinverted_coloring_green {
+  color: var(--token-RfjgRm_vwpFE);
+  background: var(--token-tixUa9vpjfx6);
+}
+.rootinverted_coloring_red {
+  color: var(--token-dDGrmCnEwJ13);
+  background: var(--token-X3km2AoNjMNu);
+}
+.rootinverted_coloring_gray {
+  color: var(--token-OLEGrY5ZMNsX);
+  background: var(--token-Ao7MqK40UU3D);
+}
+.rootinverted_coloring_yellow {
+  color: var(--token-Rx2UMkG_cMIV);
+  background: var(--token-UgPWQVNfIM-V);
+}
+.rootinverted_coloring_blue {
+  color: var(--token-nQIpO9OexZy0);
+  background: var(--token-NvWKxLJBK3la);
+}
+.rootinverted_coloring_orange {
+  color: var(--token-1oj9qpofR0r6);
+  background: var(--token-VT5-OMJZd4rF);
+}
+.rootinverted_coloring_bronze {
+  color: #ca3702;
+  background: #fde3d8;
+}
