@@ -28,7 +28,7 @@ export async function getStaticProps(context: any) {
     </PageParamsProvider__>
   );
   console.log("queryCache:", JSON.stringify(queryCache));
-  const id = "a9907b33-ec42-4b30-8981-77f57635e9e0"
+  const id = "d099d077-c947-4822-972a-2808620ff5c3"
   const isOkay = Object.keys(queryCache).some(k => k.includes(id))
   if (!isOkay) {
     return {
