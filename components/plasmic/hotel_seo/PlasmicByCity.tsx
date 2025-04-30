@@ -70,7 +70,10 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HotelCard from "../../HotelCard"; // plasmic-import: 38fPhjJykGrK/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
+import { PlasmicHead } from "@plasmicapp/react-web";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
+import { useScreenVariants as useScreenVariantsj8Mi7ZgQDQt } from "../library/PlasmicGlobalVariant__Screen"; // plasmic-import: J8mi7ZG-qDQt/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -98,6 +101,7 @@ export type PlasmicByCity__OverridesType = {
   h3?: Flex__<"h3">;
   h2?: Flex__<"h2">;
   skeletonStyles?: Flex__<typeof Embed>;
+  pageMetadataOverride?: Flex__<typeof PlasmicHead>;
 };
 
 export interface DefaultByCityProps {}
@@ -264,11 +268,11 @@ function PlasmicByCity__RenderFunc(props: {
     results: usePlasmicDataOp(() => {
       return {
         sourceId: "o4vw3QcswAi2j8Ex5yygqP",
-        opId: "a9907b33-ec42-4b30-8981-77f57635e9e0",
+        opId: "d099d077-c947-4822-972a-2808620ff5c3",
         userArgs: {
           params: [$ctx.params.city, $state.page]
         },
-        cacheKey: `plasmic.$.a9907b33-ec42-4b30-8981-77f57635e9e0.$.`,
+        cacheKey: `plasmic.$.d099d077-c947-4822-972a-2808620ff5c3.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -279,6 +283,10 @@ function PlasmicByCity__RenderFunc(props: {
 
     $queries = new$Queries;
   }
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsj8Mi7ZgQDQt()
+  });
 
   return (
     <React.Fragment>
@@ -566,7 +574,7 @@ function PlasmicByCity__RenderFunc(props: {
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
                               try {
-                                return [...Array(20).keys()];
+                                return [...Array(24).keys()];
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -846,23 +854,45 @@ function PlasmicByCity__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__ekdb8)}
               >
-                {(() => {
-                  try {
-                    return (
-                      Math.ceil(
-                        $queries.results.data.response.result.hotelsCount / 20
-                      ) > $state.page
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+                {(
+                  hasVariant(globalVariants, "screen", "desktopDefault")
+                    ? (() => {
+                        try {
+                          return (
+                            Math.ceil(
+                              $queries.results.data.response.result
+                                .hotelsCount / 24
+                            ) > $state.page
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return (
+                            Math.ceil(
+                              $queries.results.data.response.result
+                                .hotelsCount / 24
+                            ) > $state.page
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <ButtonButton
                     className={classNames(
                       "__wab_instance",
@@ -941,24 +971,47 @@ function PlasmicByCity__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__fem5Y)}
                 >
-                  {(() => {
-                    try {
-                      return (
-                        Math.ceil(
-                          $queries.results.data.response.result.hotelsCount / 20
-                        ) >
-                        $state.page + 2
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
+                  {(
+                    hasVariant(globalVariants, "screen", "desktopDefault")
+                      ? (() => {
+                          try {
+                            return (
+                              Math.ceil(
+                                $queries.results.data.response.result
+                                  .hotelsCount / 24
+                              ) >
+                              $state.page + 2
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (
+                              Math.ceil(
+                                $queries.results.data.response.result
+                                  .hotelsCount / 24
+                              ) >
+                              $state.page + 2
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
                     <div
                       className={classNames(
                         projectcss.all,
@@ -969,24 +1022,47 @@ function PlasmicByCity__RenderFunc(props: {
                       {"..."}
                     </div>
                   ) : null}
-                  {(() => {
-                    try {
-                      return (
-                        Math.ceil(
-                          $queries.results.data.response.result.hotelsCount / 20
-                        ) >
-                        $state.page + 1
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
+                  {(
+                    hasVariant(globalVariants, "screen", "desktopDefault")
+                      ? (() => {
+                          try {
+                            return (
+                              Math.ceil(
+                                $queries.results.data.response.result
+                                  .hotelsCount / 24
+                              ) >
+                              $state.page + 1
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (
+                              Math.ceil(
+                                $queries.results.data.response.result
+                                  .hotelsCount / 24
+                              ) >
+                              $state.page + 1
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
                     <ButtonButton
                       className={classNames(
                         "__wab_instance",
@@ -1068,23 +1144,45 @@ function PlasmicByCity__RenderFunc(props: {
                       type={"link"}
                     />
                   ) : null}
-                  {(() => {
-                    try {
-                      return (
-                        Math.ceil(
-                          $queries.results.data.response.result.hotelsCount / 20
-                        ) > $state.page
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
+                  {(
+                    hasVariant(globalVariants, "screen", "desktopDefault")
+                      ? (() => {
+                          try {
+                            return (
+                              Math.ceil(
+                                $queries.results.data.response.result
+                                  .hotelsCount / 24
+                              ) > $state.page
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (
+                              Math.ceil(
+                                $queries.results.data.response.result
+                                  .hotelsCount / 24
+                              ) > $state.page
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
                     <ButtonButton
                       className={classNames(
                         "__wab_instance",
@@ -1189,19 +1287,35 @@ function PlasmicByCity__RenderFunc(props: {
                     type={"link"}
                   />
 
-                  {(() => {
-                    try {
-                      return $state.page != 1;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
+                  {(
+                    hasVariant(globalVariants, "screen", "desktopDefault")
+                      ? (() => {
+                          try {
+                            return $state.page > 2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return $state.page < 2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
                     <div
                       className={classNames(
                         projectcss.all,
@@ -1478,6 +1592,14 @@ function PlasmicByCity__RenderFunc(props: {
               "<style>\n  .skeleton-a {\n    animation: gradientAnimation 2.5s ease-in-out infinite;\n    background: linear-gradient(270deg, #ebebeb, #fafafa);\n    background-size: 200% 200%;\n    background-position: 0% 50%;\n  }\n  .skeleton-b {\n    animation: gradientAnimation 2.5s ease-in-out infinite;\n    background: linear-gradient(270deg, #dedede, #ebebeb);\n    background-size: 200% 200%;\n    background-position: 0% 50%;\n  }\n  @keyframes gradientAnimation {\n    0% {\n      background-position: 0% 50%;\n    }\n    50% {\n      background-position: 100% 50%;\n    }\n    100% {\n      background-position: 0% 50%;\n    }\n  }\n</style>\n"
             }
           />
+
+          <PlasmicHead
+            data-plasmic-name={"pageMetadataOverride"}
+            data-plasmic-override={overrides.pageMetadataOverride}
+            canonical={`https://sindibad.iq/hotel/${$ctx.params.city}`}
+            description={`اكتشف أفضل فنادق ${$state.variable} في تطبيق سندباد مع خيارات إقامة رائعة | احجز الآن لأفضل العروض والمرافق .`}
+            title={`أفضل فنادق ${$state.variable} في تطبيق سندباد`}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1493,7 +1615,8 @@ const PlasmicDescendants = {
     "httpRestApiFetcher",
     "h3",
     "h2",
-    "skeletonStyles"
+    "skeletonStyles",
+    "pageMetadataOverride"
   ],
   basicHeaderMain: ["basicHeaderMain"],
   section: ["section", "h1", "httpRestApiFetcher", "h3", "h2"],
@@ -1501,7 +1624,8 @@ const PlasmicDescendants = {
   httpRestApiFetcher: ["httpRestApiFetcher", "h3"],
   h3: ["h3"],
   h2: ["h2"],
-  skeletonStyles: ["skeletonStyles"]
+  skeletonStyles: ["skeletonStyles"],
+  pageMetadataOverride: ["pageMetadataOverride"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1515,6 +1639,7 @@ type NodeDefaultElementType = {
   h3: "h3";
   h2: "h2";
   skeletonStyles: typeof Embed;
+  pageMetadataOverride: typeof PlasmicHead;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1584,6 +1709,7 @@ export const PlasmicByCity = Object.assign(
     h3: makeNodeComponent("h3"),
     h2: makeNodeComponent("h2"),
     skeletonStyles: makeNodeComponent("skeletonStyles"),
+    pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
 
     // Metadata about props expected for PlasmicByCity
     internalVariantProps: PlasmicByCity__VariantProps,

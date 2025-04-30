@@ -64,6 +64,7 @@ import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HotelCard from "../../HotelCard"; // plasmic-import: 38fPhjJykGrK/component
+import { PlasmicHead } from "@plasmicapp/react-web";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -93,6 +94,7 @@ export type PlasmicHub__OverridesType = {
   hotelCard?: Flex__<typeof HotelCard>;
   link?: Flex__<"a"> & Partial<LinkProps>;
   skeletonStyles?: Flex__<typeof Embed>;
+  pageMetadataOverride?: Flex__<typeof PlasmicHead>;
 };
 
 export interface DefaultHubProps {}
@@ -809,6 +811,17 @@ function PlasmicHub__RenderFunc(props: {
               }
             />
           </Stack__>
+          <PlasmicHead
+            data-plasmic-name={"pageMetadataOverride"}
+            data-plasmic-override={overrides.pageMetadataOverride}
+            canonical={"https://sindibad.iq/hotel"}
+            description={
+              "\u0627\u0643\u062a\u0634\u0641 \u0623\u0641\u0636\u0644 \u0627\u0644\u0641\u0646\u0627\u062f\u0642 \u0641\u064a \u062a\u0637\u0628\u064a\u0642 \u0633\u0646\u062f\u0628\u0627\u062f \u0645\u0639 \u062e\u064a\u0627\u0631\u0627\u062a \u0625\u0642\u0627\u0645\u0629 \u0631\u0627\u0626\u0639\u0629 \u0641\u064a \u0637\u0647\u0631\u0627\u0646\u060c \u062f\u0628\u064a\u060c \u0625\u0633\u0637\u0646\u0628\u0648\u0644. \u0627\u062d\u062c\u0632 \u0627\u0644\u0622\u0646 \u0644\u0623\u0641\u0636\u0644 \u0627\u0644\u0639\u0631\u0648\u0636 \u0648\u0627\u0644\u0645\u0631\u0627\u0641\u0642 ."
+            }
+            title={
+              "\u0623\u0641\u0636\u0644 \u0641\u0646\u0627\u062f\u0642 \u062a\u0637\u0628\u064a\u0642 \u0633\u0646\u062f\u0628\u0627\u062f - \u062d\u062c\u0632 \u0641\u0646\u0627\u062f\u0642 \u0641\u064a \u0637\u0647\u0631\u0627\u0646\u060c \u062f\u0628\u064a\u060c \u0625\u0633\u0637\u0646\u0628\u0648\u0644"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -826,7 +839,8 @@ const PlasmicDescendants = {
     "h3",
     "hotelCard",
     "link",
-    "skeletonStyles"
+    "skeletonStyles",
+    "pageMetadataOverride"
   ],
   basicHeaderMain: ["basicHeaderMain"],
   section: [
@@ -845,7 +859,8 @@ const PlasmicDescendants = {
   h3: ["h3"],
   hotelCard: ["hotelCard"],
   link: ["link"],
-  skeletonStyles: ["skeletonStyles"]
+  skeletonStyles: ["skeletonStyles"],
+  pageMetadataOverride: ["pageMetadataOverride"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -861,6 +876,7 @@ type NodeDefaultElementType = {
   hotelCard: typeof HotelCard;
   link: "a";
   skeletonStyles: typeof Embed;
+  pageMetadataOverride: typeof PlasmicHead;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -932,6 +948,7 @@ export const PlasmicHub = Object.assign(
     hotelCard: makeNodeComponent("hotelCard"),
     link: makeNodeComponent("link"),
     skeletonStyles: makeNodeComponent("skeletonStyles"),
+    pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
 
     // Metadata about props expected for PlasmicHub
     internalVariantProps: PlasmicHub__VariantProps,
