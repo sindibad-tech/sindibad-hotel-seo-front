@@ -237,7 +237,7 @@ function PlasmicHotelCard__RenderFunc(props: {
           }}
           src={(() => {
             try {
-              return $props.currentHotel.content.images[$state.slideNum].url;
+              return $props.currentHotel.content.images[0].thumbnailUrl;
             } catch (e) {
               if (
                 e instanceof TypeError ||
