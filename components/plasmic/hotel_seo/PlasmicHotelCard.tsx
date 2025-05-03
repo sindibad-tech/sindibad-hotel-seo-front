@@ -85,7 +85,7 @@ export const PlasmicHotelCard__VariantProps = new Array<VariantPropType>(
 export type PlasmicHotelCard__ArgsType = {
   colors?: any;
   currentHotel?: any;
-  currentCity?: any;
+  currentCity?: string;
 };
 type ArgPropType = keyof PlasmicHotelCard__ArgsType;
 export const PlasmicHotelCard__ArgProps = new Array<ArgPropType>(
@@ -104,7 +104,7 @@ export type PlasmicHotelCard__OverridesType = {
 export interface DefaultHotelCardProps {
   colors?: any;
   currentHotel?: any;
-  currentCity?: any;
+  currentCity?: string;
   fill?: SingleBooleanChoiceArg<"fill">;
   className?: string;
 }
@@ -219,7 +219,7 @@ function PlasmicHotelCard__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
-                      return (window.location.href = `https://sindibad.iq/hotels/${$props.currentCity.name}/${$props.currentHotel.hotelId}`);
+                      return (window.location.href = `https://sindibad.iq/hotels/${$props.currentCity}/${$props.currentHotel.hotelId}`);
                     }
                   };
                   return (({ customFunction }) => {
@@ -471,7 +471,7 @@ function PlasmicHotelCard__RenderFunc(props: {
         component={Link}
         href={(() => {
           try {
-            return `https://sindibad.iq/hotels/${$props.currentCity.name}/${$props.currentHotel.hotelId}`;
+            return `https://sindibad.iq/hotels/${$props.currentCity}/${$props.currentHotel.hotelId}`;
           } catch (e) {
             if (
               e instanceof TypeError ||

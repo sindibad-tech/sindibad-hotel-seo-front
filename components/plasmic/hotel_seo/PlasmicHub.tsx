@@ -701,7 +701,6 @@ function PlasmicHub__RenderFunc(props: {
                                     sty.hotelCard
                                   )}
                                   colors={$state.colors}
-                                  currentCity={currentCity}
                                   currentHotel={currentHotel}
                                   key={hotelIndex}
                                 />
