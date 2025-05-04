@@ -701,6 +701,20 @@ function PlasmicHub__RenderFunc(props: {
                                     sty.hotelCard
                                   )}
                                   colors={$state.colors}
+                                  currentCity={(() => {
+                                    try {
+                                      return currentCity.name;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
                                   currentHotel={currentHotel}
                                   key={hotelIndex}
                                 />
