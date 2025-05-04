@@ -811,6 +811,20 @@ function PlasmicByCity__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.hotelCard__lm2PT
                               )}
+                              currentCity={(() => {
+                                try {
+                                  return $ctx.params.city;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
                               currentHotel={(() => {
                                 try {
                                   return currentHotel;
@@ -1290,7 +1304,7 @@ function PlasmicByCity__RenderFunc(props: {
                         })()
                       : (() => {
                           try {
-                            return $state.page < 2;
+                            return $state.page > 2;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
