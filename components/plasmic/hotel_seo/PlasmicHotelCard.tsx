@@ -156,6 +156,7 @@ function PlasmicHotelCard__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -204,7 +205,9 @@ function PlasmicHotelCard__RenderFunc(props: {
       <div className={classNames(projectcss.all, sty.freeBox___4QndW)}>
         <PlasmicImg__
           alt={""}
-          className={classNames(sty.img__liydm)}
+          className={classNames(sty.img__liydm, {
+            [sty.imgfill__liydmxRtJq]: hasVariant($state, "fill", "fill")
+          })}
           displayHeight={"160px"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
@@ -491,7 +494,8 @@ function PlasmicHotelCard__RenderFunc(props: {
             projectcss.all,
             projectcss.h3,
             projectcss.__wab_text,
-            sty.h3
+            sty.h3,
+            { [sty.h3fill]: hasVariant($state, "fill", "fill") }
           )}
         >
           <React.Fragment>

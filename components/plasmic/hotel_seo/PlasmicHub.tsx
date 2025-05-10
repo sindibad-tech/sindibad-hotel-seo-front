@@ -62,9 +62,11 @@ import {
 import BasicHeaderMain from "../../BasicHeaderMain"; // plasmic-import: 68vzBgIlCkRh/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import HotelCardLoading from "../../HotelCardLoading"; // plasmic-import: bEupcMf2JY1O/component
 import HotelCard from "../../HotelCard"; // plasmic-import: 38fPhjJykGrK/component
+import DataViewAccordionHtml from "../../DataViewAccordionHtml"; // plasmic-import: gUzsfh9iKf6l/component
 import { PlasmicHead } from "@plasmicapp/react-web";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -89,12 +91,14 @@ export type PlasmicHub__OverridesType = {
   section?: Flex__<"section">;
   h1?: Flex__<"h1">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  text?: Flex__<"div">;
-  h3?: Flex__<"h3">;
+  hotelCardLoading?: Flex__<typeof HotelCardLoading>;
   hotelCard?: Flex__<typeof HotelCard>;
   link?: Flex__<"a"> & Partial<LinkProps>;
-  skeletonStyles?: Flex__<typeof Embed>;
+  ul?: Flex__<"ul">;
+  dataViewAccordionHtml?: Flex__<typeof DataViewAccordionHtml>;
   pageMetadataOverride?: Flex__<typeof PlasmicHead>;
+  skeletonStyles?: Flex__<typeof Embed>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultHubProps {}
@@ -133,6 +137,7 @@ function PlasmicHub__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -212,18 +217,35 @@ function PlasmicHub__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.section)}
           >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.h1
-              )}
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__u2N7Y)}
             >
-              {"\u0623\u0641\u0636\u0644 \u0641\u0646\u0627\u062f\u0642"}
-            </h1>
+              <h1
+                data-plasmic-name={"h1"}
+                data-plasmic-override={overrides.h1}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1
+                )}
+              >
+                {"\u0623\u0641\u0636\u0644 \u0641\u0646\u0627\u062f\u0642"}
+              </h1>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__aqJ7K
+                )}
+              >
+                {
+                  "\u0647\u0646\u0627\u060c \u0633\u062a\u062c\u062f \u0623\u0641\u0636\u0644 \u0627\u0644\u0641\u0646\u0627\u062f\u0642 \u0627\u0644\u062a\u064a \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0625\u0642\u0627\u0645\u0629 \u0641\u064a\u0647\u0627 \u0641\u064a \u062f\u0648\u0644 \u0645\u062e\u062a\u0644\u0641\u0629 \u0645\u062b\u0644 \u0625\u064a\u0631\u0627\u0646\u060c \u062a\u0631\u0643\u064a\u0627\u060c \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a \u0648\u063a\u064a\u0631\u0647\u0627. \u0646\u062d\u0646 \u0646\u0636\u0639 \u0628\u064a\u0646 \u064a\u062f\u064a\u0643 \u062e\u064a\u0627\u0631\u0627\u062a \u0645\u062a\u0645\u064a\u0632\u0629 \u0644\u062a\u0633\u0647\u064a\u0644 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0641\u0646\u062f\u0642 \u0627\u0644\u0623\u0646\u0633\u0628 \u0644\u0627\u062d\u062a\u064a\u0627\u062c\u0627\u062a\u0643\u060c \u0645\u0639 \u0636\u0645\u0627\u0646 \u0645\u0642\u0627\u0631\u0646\u0629 \u0633\u0647\u0644\u0629 \u0628\u064a\u0646 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0641\u0646\u0627\u062f\u0642 \u0648\u0627\u0644\u0639\u0631\u0648\u0636. \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0627\u0637\u0644\u0627\u0639 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0645\u0648\u062b\u0648\u0642\u0629 \u0645\u0646 \u0646\u0632\u0644\u0627\u0621 \u062d\u0642\u064a\u0642\u064a\u064a\u0646\u060c \u0645\u0645\u0627 \u064a\u0636\u0645\u0646 \u0644\u0643 \u0627\u062e\u062a\u064a\u0627\u0631 \u0627\u0644\u0623\u0641\u0636\u0644. \u0628\u0627\u0644\u0625\u0636\u0627\u0641\u0629 \u0625\u0644\u0649 \u0630\u0644\u0643\u060c \u0646\u0642\u062f\u0645 \u062d\u062c\u0632\u064b\u0627 \u0633\u0631\u064a\u0639\u064b\u0627 \u0644\u0644\u0641\u0646\u0627\u062f\u0642 \u062e\u0644\u0627\u0644 \u062b\u0648\u0627\u0646\u064d\u060c \u0645\u0639 \u062f\u0641\u0639 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0644\u0636\u0645\u0627\u0646 \u0631\u0627\u062d\u062a\u0643. \u0643\u0645\u0627 \u0646\u0648\u0641\u0631 \u0644\u0643 \u062f\u0639\u0645\u064b\u0627 \u0645\u062a\u0648\u0627\u0635\u0644\u064b\u0627 \u0639\u0644\u0649 \u0645\u062f\u0627\u0631 \u0627\u0644\u0633\u0627\u0639\u0629 \u0644\u0636\u0645\u0627\u0646 \u062a\u062c\u0631\u0628\u0629 \u062e\u0627\u0644\u064a\u0629 \u0645\u0646 \u0627\u0644\u0645\u062a\u0627\u0639\u0628."
+                }
+              </div>
+            </Stack__>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -388,197 +410,20 @@ function PlasmicHub__RenderFunc(props: {
                                   }
                                 })()
                               ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                                const currentHotel = __plasmic_item_1;
-                                const hotelIndex = __plasmic_idx_1;
+                                const currentItem = __plasmic_item_1;
+                                const currentIndex = __plasmic_idx_1;
                                 return (
-                                  <div
+                                  <HotelCardLoading
+                                    data-plasmic-name={"hotelCardLoading"}
+                                    data-plasmic-override={
+                                      overrides.hotelCardLoading
+                                    }
                                     className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__l5Ue6
+                                      "__wab_instance",
+                                      sty.hotelCardLoading
                                     )}
-                                    key={hotelIndex}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__cPm8M
-                                      )}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__pVcLb,
-                                          "skeleton-a"
-                                        )}
-                                      />
-
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__fqxKq
-                                        )}
-                                      >
-                                        <div
-                                          data-plasmic-name={"text"}
-                                          data-plasmic-override={overrides.text}
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text,
-                                            "skeleton-b"
-                                          )}
-                                        >
-                                          {""}
-                                        </div>
-                                        <Embed
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.embedHtml___1BbX
-                                          )}
-                                          code={
-                                            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor"/>\n</svg>\n'
-                                          }
-                                        />
-                                      </Stack__>
-                                    </div>
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__clBxU
-                                      )}
-                                    >
-                                      <h3
-                                        data-plasmic-name={"h3"}
-                                        data-plasmic-override={overrides.h3}
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.h3,
-                                          projectcss.__wab_text,
-                                          sty.h3,
-                                          "skeleton-a"
-                                        )}
-                                      >
-                                        {""}
-                                      </h3>
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox___5Fmdv
-                                        )}
-                                      >
-                                        {(_par =>
-                                          !_par
-                                            ? []
-                                            : Array.isArray(_par)
-                                            ? _par
-                                            : [_par])(
-                                          (() => {
-                                            try {
-                                              return (() => {
-                                                const rep = [];
-                                                for (let i = 1; i <= 5; i++) {
-                                                  rep.push(i);
-                                                }
-                                                return rep;
-                                              })();
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return [];
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        ).map(
-                                          (
-                                            __plasmic_item_2,
-                                            __plasmic_idx_2
-                                          ) => {
-                                            const currentItem =
-                                              __plasmic_item_2;
-                                            const currentIndex =
-                                              __plasmic_idx_2;
-                                            return (
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__hGrgs
-                                                )}
-                                                key={currentIndex}
-                                              >
-                                                <Embed
-                                                  className={classNames(
-                                                    "__wab_instance",
-                                                    sty.embedHtml__riYbz
-                                                  )}
-                                                  code={
-                                                    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" fill="currentColor"/>\n</svg>\n'
-                                                  }
-                                                />
-                                              </div>
-                                            );
-                                          }
-                                        )}
-                                      </div>
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__oxcaB
-                                        )}
-                                      >
-                                        {(_par =>
-                                          !_par
-                                            ? []
-                                            : Array.isArray(_par)
-                                            ? _par
-                                            : [_par])(
-                                          (() => {
-                                            try {
-                                              return [1, 2, 3, 4];
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return [];
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        ).map(
-                                          (
-                                            __plasmic_item_2,
-                                            __plasmic_idx_2
-                                          ) => {
-                                            const currentTag = __plasmic_item_2;
-                                            const tagIndex = __plasmic_idx_2;
-                                            return (
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__gn3BR,
-                                                  "skeleton-a"
-                                                )}
-                                                key={tagIndex}
-                                              />
-                                            );
-                                          }
-                                        )}
-                                      </Stack__>
-                                    </Stack__>
-                                  </div>
+                                    key={currentIndex}
+                                  />
                                 );
                               })}
                             </Stack__>
@@ -588,7 +433,7 @@ function PlasmicHub__RenderFunc(props: {
                     }
                     method={"GET"}
                     noLayout={false}
-                    previewSpinner={false}
+                    previewSpinner={true}
                     url={`https://api.sindibad.iq/api/v1/hotel-content/HotelDetails/get-city-hotel-contents?cityId=${currentCity.name}&pageSize=${$state.pageSize}&pageNumber=1`}
                   >
                     <DataCtxReader__>
@@ -815,14 +660,216 @@ function PlasmicHub__RenderFunc(props: {
                 })}
               </div>
             </div>
-            <Embed
-              data-plasmic-name={"skeletonStyles"}
-              data-plasmic-override={overrides.skeletonStyles}
-              className={classNames("__wab_instance", sty.skeletonStyles)}
-              code={
-                "<style>\n  .skeleton-a {\n    animation: gradientAnimation 2.5s ease-in-out infinite;\n    background: linear-gradient(270deg, #ebebeb, #fafafa);\n    background-size: 200% 200%;\n    background-position: 0% 50%;\n  }\n  .skeleton-b {\n    animation: gradientAnimation 2.5s ease-in-out infinite;\n    background: linear-gradient(270deg, #dedede, #ebebeb);\n    background-size: 200% 200%;\n    background-position: 0% 50%;\n  }\n  @keyframes gradientAnimation {\n    0% {\n      background-position: 0% 50%;\n    }\n    50% {\n      background-position: 100% 50%;\n    }\n    100% {\n      background-position: 0% 50%;\n    }\n  }\n</style>\n"
-              }
-            />
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__duIzm)}
+            >
+              <h2
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2__fooam
+                )}
+              >
+                {
+                  " \u0644\u0645\u0627\u0630\u0627 \u062d\u062c\u0632 \u0627\u0644\u0641\u0646\u062f\u0642 \u0645\u0646 \u0633\u0646\u062f\u0628\u0627\u062f \u0647\u0648 \u0627\u0644\u062e\u064a\u0627\u0631 \u0627\u0644\u0623\u0641\u0636\u0644\u061f"
+                }
+              </h2>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___7Nl0V
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>
+                    {
+                      "\u0641\u064a \u0633\u0646\u062f\u0628\u0627\u062f\u060c \u0644\u0627 \u0646\u0642\u062f\u0645 \u062e\u062f\u0645\u0629 \u062d\u062c\u0632 \u0627\u0644\u0641\u0646\u0627\u062f\u0642 \u0641\u062d\u0633\u0628\u060c \u0628\u0644 \u0646\u0648\u0641\u0631 \u0644\u0643 \u062a\u062c\u0631\u0628\u0629 \u0633\u0641\u0631 \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0628\u0643\u0644 \u0633\u0647\u0648\u0644\u0629 \u0648\u062b\u0642\u0629.\n \u0627\u0633\u062a\u0645\u062a\u0639 \u0628\u0640:\n"
+                    }
+                  </React.Fragment>
+                  {
+                    <ul
+                      data-plasmic-name={"ul"}
+                      data-plasmic-override={overrides.ul}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul
+                      )}
+                    >
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__qZ0B
+                        )}
+                      >
+                        {
+                          "\u0645\u0642\u0627\u0631\u0646\u0629 \u0633\u0647\u0644\u0629 \u0628\u064a\u0646 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0641\u0646\u0627\u062f\u0642 \u0648\u0627\u0644\u0639\u0631\u0648\u0636\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__l1Mzs
+                        )}
+                      >
+                        {
+                          "\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0645\u0648\u062b\u0648\u0642\u0629 \u0645\u0646 \u0646\u0632\u0644\u0627\u0621 \u062d\u0642\u064a\u0642\u064a\u064a\u0646\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__c83Rh
+                        )}
+                      >
+                        {
+                          "\u062d\u062c\u0632 \u0633\u0631\u064a\u0639 \u0644\u0644\u0641\u0646\u0627\u062f\u0642 \u062e\u0644\u0627\u0644 \u062b\u0648\u0627\u0646"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li___0H3Xg
+                        )}
+                      >
+                        {
+                          "\u062f\u0639\u0645 \u0645\u062a\u0648\u0627\u0635\u0644 \u0639\u0644\u0649 \u0645\u062f\u0627\u0631 \u0627\u0644\u0633\u0627\u0639\u0629\n"
+                        }
+                      </li>
+                      <li
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li__v29P
+                        )}
+                      >
+                        {
+                          "\u0637\u0631\u0642 \u062f\u0641\u0639 \u0645\u062a\u0646\u0648\u0639\u0629\u060c \u0639\u0628\u0631 \u0627\u0644\u0627\u0646\u062a\u0631\u0646\u062a \u0648\u0646\u0642\u062f\u0627\n"
+                        }
+                      </li>
+                    </ul>
+                  }
+                  <React.Fragment>{""}</React.Fragment>
+                </React.Fragment>
+              </div>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__lHHa,
+                "special-link-container"
+              )}
+            >
+              <h2
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2__jZbX
+                )}
+              >
+                {
+                  "\u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u0634\u0627\u0626\u0639\u0629 \u062d\u0648\u0644 \u0627\u0644\u0641\u0646\u0627\u062f\u0642 \u0645\u0646 \u0633\u0646\u062f\u0628\u0627\u062f"
+                }
+              </h2>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___8Wymp)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [
+                        {
+                          q: "كيف يمكنني حجز فندق عبر سندباد؟",
+                          a: " اختر المدينة وتاريخ الإقامة، ثم استعرض أفضل الفنادق واحجز فورًا بسهولة."
+                        },
+                        {
+                          q: "هل أسعار حجز الفنادق تشمل جميع الرسوم؟",
+                          a: " نعم، جميع الأسعار تشمل الضرائب والخدمات، مع توضيح إذا كان الحجز يتضمن الإفطار أو خدمات إضافية."
+                        },
+                        {
+                          q: "هل يمكنني إلغاء حجز الفندق بعد الدفع؟",
+                          a: " ذلك يعتمد على سياسة الإلغاء الخاصة بالفندق. بعض الفنادق تتيح إلغاء مجاني حتى وقت معين، ويتم توضيح ذلك قبل الحجز."
+                        },
+                        {
+                          q: "ما هي طرق الدفع المتوفرة لحجز الفنادق؟",
+                          a: "يمكن الدفع الإلكتروني باستخدام بطاقات زين كاش، ماستركارد، فيزا كارد وغيرها، أو من خلال خدمة سندي كاش التي تتيح لك الدفع عبر مندوب يصلك، كما يمكنك الدفع مباشرة داخل مكتبنا في بغداد، بالإضافة إلى إمكانية التحويل المالي عبر زين كاش وكي كارد حسب ما هو متاح في منطقتك."
+                        },
+                        {
+                          q: "كيف أتواصل مع فريق الدعم؟",
+                          a: "يمكنك التواصل معنا عبر الدردشة المباشرة أو من خلال <a href='https://sindibad.iq/assistant' target='_blank'> المساعد الذكي </a>داخل التطبيق، سواء لطرح أسئلة أو متابعة حجوزاتك بكل سهولة."
+                        }
+                      ];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <DataViewAccordionHtml
+                      data-plasmic-name={"dataViewAccordionHtml"}
+                      data-plasmic-override={overrides.dataViewAccordionHtml}
+                      a={(() => {
+                        try {
+                          return currentItem.a;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.dataViewAccordionHtml
+                      )}
+                      key={currentIndex}
+                      q={(() => {
+                        try {
+                          return currentItem.q;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })}
+              </Stack__>
+            </Stack__>
           </Stack__>
           <PlasmicHead
             data-plasmic-name={"pageMetadataOverride"}
@@ -833,6 +880,24 @@ function PlasmicHub__RenderFunc(props: {
             }
             title={
               "\u0623\u0641\u0636\u0644 \u0641\u0646\u0627\u062f\u0642 \u062a\u0637\u0628\u064a\u0642 \u0633\u0646\u062f\u0628\u0627\u062f - \u062d\u062c\u0632 \u0641\u0646\u0627\u062f\u0642 \u0641\u064a \u0637\u0647\u0631\u0627\u0646\u060c \u062f\u0628\u064a\u060c \u0625\u0633\u0637\u0646\u0628\u0648\u0644"
+            }
+          />
+
+          <Embed
+            data-plasmic-name={"skeletonStyles"}
+            data-plasmic-override={overrides.skeletonStyles}
+            className={classNames("__wab_instance", sty.skeletonStyles)}
+            code={
+              "<style>\n  .skeleton-a {\n    animation: gradientAnimation 2.5s ease-in-out infinite;\n    background: linear-gradient(270deg, #ebebeb, #fafafa);\n    background-size: 200% 200%;\n    background-position: 0% 50%;\n  }\n  .skeleton-b {\n    animation: gradientAnimation 2.5s ease-in-out infinite;\n    background: linear-gradient(270deg, #dedede, #ebebeb);\n    background-size: 200% 200%;\n    background-position: 0% 50%;\n  }\n  @keyframes gradientAnimation {\n    0% {\n      background-position: 0% 50%;\n    }\n    50% {\n      background-position: 100% 50%;\n    }\n    100% {\n      background-position: 0% 50%;\n    }\n  }\n</style>\n"
+            }
+          />
+
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<style>\n  .special-link-container a{\n    color: #0000ff\n  }\n</style>"
             }
           />
         </div>
@@ -848,32 +913,36 @@ const PlasmicDescendants = {
     "section",
     "h1",
     "httpRestApiFetcher",
-    "text",
-    "h3",
+    "hotelCardLoading",
     "hotelCard",
     "link",
+    "ul",
+    "dataViewAccordionHtml",
+    "pageMetadataOverride",
     "skeletonStyles",
-    "pageMetadataOverride"
+    "embedHtml"
   ],
   basicHeaderMain: ["basicHeaderMain"],
   section: [
     "section",
     "h1",
     "httpRestApiFetcher",
-    "text",
-    "h3",
+    "hotelCardLoading",
     "hotelCard",
     "link",
-    "skeletonStyles"
+    "ul",
+    "dataViewAccordionHtml"
   ],
   h1: ["h1"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "text", "h3", "hotelCard"],
-  text: ["text"],
-  h3: ["h3"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "hotelCardLoading", "hotelCard"],
+  hotelCardLoading: ["hotelCardLoading"],
   hotelCard: ["hotelCard"],
   link: ["link"],
+  ul: ["ul"],
+  dataViewAccordionHtml: ["dataViewAccordionHtml"],
+  pageMetadataOverride: ["pageMetadataOverride"],
   skeletonStyles: ["skeletonStyles"],
-  pageMetadataOverride: ["pageMetadataOverride"]
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -884,12 +953,14 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   httpRestApiFetcher: typeof DataFetcher;
-  text: "div";
-  h3: "h3";
+  hotelCardLoading: typeof HotelCardLoading;
   hotelCard: typeof HotelCard;
   link: "a";
-  skeletonStyles: typeof Embed;
+  ul: "ul";
+  dataViewAccordionHtml: typeof DataViewAccordionHtml;
   pageMetadataOverride: typeof PlasmicHead;
+  skeletonStyles: typeof Embed;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -956,12 +1027,14 @@ export const PlasmicHub = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    text: makeNodeComponent("text"),
-    h3: makeNodeComponent("h3"),
+    hotelCardLoading: makeNodeComponent("hotelCardLoading"),
     hotelCard: makeNodeComponent("hotelCard"),
     link: makeNodeComponent("link"),
-    skeletonStyles: makeNodeComponent("skeletonStyles"),
+    ul: makeNodeComponent("ul"),
+    dataViewAccordionHtml: makeNodeComponent("dataViewAccordionHtml"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
+    skeletonStyles: makeNodeComponent("skeletonStyles"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicHub
     internalVariantProps: PlasmicHub__VariantProps,

@@ -555,6 +555,19 @@
           "cssFilePath": "plasmic/hotel_seo/PlasmicLightbox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "bEupcMf2JY1O",
+          "name": "HotelCardLoading",
+          "type": "managed",
+          "projectId": "k5hHCtYSicJ5vZr4xW3KEs",
+          "renderModuleFilePath": "plasmic/hotel_seo/PlasmicHotelCardLoading.tsx",
+          "importSpec": {
+            "modulePath": "HotelCardLoading.tsx"
+          },
+          "cssFilePath": "plasmic/hotel_seo/PlasmicHotelCardLoading.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [],
@@ -605,6 +618,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.337",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.337/dist/plasmic.schema.json"
+  "cliVersion": "0.1.338",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.338/dist/plasmic.schema.json"
 }

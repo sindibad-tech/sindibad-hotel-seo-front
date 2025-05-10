@@ -69,6 +69,7 @@ import BasicHeaderMain from "../../BasicHeaderMain"; // plasmic-import: 68vzBgIl
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HotelCard from "../../HotelCard"; // plasmic-import: 38fPhjJykGrK/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
+import HotelCardLoading from "../../HotelCardLoading"; // plasmic-import: bEupcMf2JY1O/component
 import ButtonButton from "../../ButtonButton"; // plasmic-import: 99pKO0LKqxZl/component
 import { PlasmicHead } from "@plasmicapp/react-web";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -98,7 +99,7 @@ export type PlasmicByCity__OverridesType = {
   section?: Flex__<"section">;
   h1?: Flex__<"h1">;
   httpRestApiFetcher?: Flex__<typeof DataFetcher>;
-  h3?: Flex__<"h3">;
+  hotelCardLoading?: Flex__<typeof HotelCardLoading>;
   h2?: Flex__<"h2">;
   skeletonStyles?: Flex__<typeof Embed>;
   pageMetadataOverride?: Flex__<typeof PlasmicHead>;
@@ -140,6 +141,7 @@ function PlasmicByCity__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -586,187 +588,20 @@ function PlasmicByCity__RenderFunc(props: {
                               }
                             })()
                           ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                            const currentHotel = __plasmic_item_0;
-                            const hotelIndex = __plasmic_idx_0;
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
                             return (
-                              <div
+                              <HotelCardLoading
+                                data-plasmic-name={"hotelCardLoading"}
+                                data-plasmic-override={
+                                  overrides.hotelCardLoading
+                                }
                                 className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__d3TQu
+                                  "__wab_instance",
+                                  sty.hotelCardLoading
                                 )}
-                                key={hotelIndex}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__qEdD3
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__feUu9,
-                                      "skeleton-a"
-                                    )}
-                                  />
-
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__ycMmI
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__bi58N,
-                                        "skeleton-b"
-                                      )}
-                                    >
-                                      {""}
-                                    </div>
-                                    <Embed
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.embedHtml__ekSnY
-                                      )}
-                                      code={
-                                        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" fill="currentColor"/>\n</svg>\n'
-                                      }
-                                    />
-                                  </Stack__>
-                                </div>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__w3J27
-                                  )}
-                                >
-                                  <h3
-                                    data-plasmic-name={"h3"}
-                                    data-plasmic-override={overrides.h3}
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h3,
-                                      projectcss.__wab_text,
-                                      sty.h3,
-                                      "skeleton-a"
-                                    )}
-                                  >
-                                    {""}
-                                  </h3>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__myOs
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return (() => {
-                                            const rep = [];
-                                            for (let i = 1; i <= 5; i++) {
-                                              rep.push(i);
-                                            }
-                                            return rep;
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentItem = __plasmic_item_1;
-                                        const currentIndex = __plasmic_idx_1;
-                                        return (
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__hYz9
-                                            )}
-                                            key={currentIndex}
-                                          >
-                                            <Embed
-                                              className={classNames(
-                                                "__wab_instance",
-                                                sty.embedHtml__jf5Te
-                                              )}
-                                              code={
-                                                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" fill="currentColor"/>\n</svg>\n'
-                                              }
-                                            />
-                                          </div>
-                                        );
-                                      }
-                                    )}
-                                  </div>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__zOag5
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return [1, 2, 3, 4];
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentTag = __plasmic_item_1;
-                                        const tagIndex = __plasmic_idx_1;
-                                        return (
-                                          <Stack__
-                                            as={"div"}
-                                            hasGap={true}
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox___3LQlL,
-                                              "skeleton-a"
-                                            )}
-                                            key={tagIndex}
-                                          />
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                </Stack__>
-                              </div>
+                                key={currentIndex}
+                              />
                             );
                           })}
                         </div>
@@ -1613,16 +1448,16 @@ const PlasmicDescendants = {
     "section",
     "h1",
     "httpRestApiFetcher",
-    "h3",
+    "hotelCardLoading",
     "h2",
     "skeletonStyles",
     "pageMetadataOverride"
   ],
   basicHeaderMain: ["basicHeaderMain"],
-  section: ["section", "h1", "httpRestApiFetcher", "h3", "h2"],
+  section: ["section", "h1", "httpRestApiFetcher", "hotelCardLoading", "h2"],
   h1: ["h1"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "h3"],
-  h3: ["h3"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "hotelCardLoading"],
+  hotelCardLoading: ["hotelCardLoading"],
   h2: ["h2"],
   skeletonStyles: ["skeletonStyles"],
   pageMetadataOverride: ["pageMetadataOverride"]
@@ -1636,7 +1471,7 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   httpRestApiFetcher: typeof DataFetcher;
-  h3: "h3";
+  hotelCardLoading: typeof HotelCardLoading;
   h2: "h2";
   skeletonStyles: typeof Embed;
   pageMetadataOverride: typeof PlasmicHead;
@@ -1706,7 +1541,7 @@ export const PlasmicByCity = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    h3: makeNodeComponent("h3"),
+    hotelCardLoading: makeNodeComponent("hotelCardLoading"),
     h2: makeNodeComponent("h2"),
     skeletonStyles: makeNodeComponent("skeletonStyles"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
